@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lyon Bot | Painel</title>
+  <meta name="theme-color" content="#329688">
+  <meta name="msapplication-navbutton-color" content="#329688">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#329688">
+  <link rel="icon" sizes="192x192" href="assets/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&family=Poppins:wght@300;400;700;900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<style>
+  body {
+  background-color: #0e1210;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #e1f2f1;
+}
+::selection {
+  background-color: #33998a;
+  color: #e1f2f1;
+}
+
+nav {
+  border-bottom: 1px solid rgba(225, 242, 241, 0.15);
+}
+
+.navbar-dark {
+  background-color: #0e1210;
+}
+
+.section_content {
+  padding-top: 6rem;
+  padding-bottom: 0rem;
+}
+
+.bg_contrast {
+  background-color: #151c18;
+}
+
+.img_rounded {
+  border-radius: 0.5rem;
+}
+
+.btn {
+  color: #e1f2f1;
+  border: none !important;
+  box-shadow: none !important;
+}
+.btn-primary {
+  background-color: #33998a;
+}
+.btn-primary:hover {
+  background-color: #267368;
+}
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #40bfac;
+}
+
+.text_link {
+  color: #33998a;
+}
+.text_link:hover {
+  color: #267368;
+}
+.text_link:active,
+.text_link:focus {
+  color: #40bfac;
+}
+
+.copyright_content {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  background-color: #000;
+}
+
+.copyright small {
+  color: rgba(225, 242, 241, 0.5);
+}
+
+.logo {
+  height: 3rem;
+}
+
+.social_logo {
+  height: 2rem;
+}
+
+.notice small {
+  text-align: justify;
+  color: rgba(225, 242, 241, 0.5);
+}
+
+.small_nav_top {
+  background-color: #000;
+  border-bottom: 1px solid rgba(225, 242, 241, 0.15);
+}
+
+#server-status span {
+  vertical-align: middle;
+}
+
+#server-status .online {
+  background-color: #649933;
+}
+
+#server-status .offline {
+  background-color: #993333;
+}
+
+#server-status span {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+}
+
+.menu {
+  width: 15%;
+  height: 100vh;
+  background-color: #151c18;
+}
+
+.menu_section {
+  width: 85%;
+  height: 100vh;
+  background-image: url("./assets/intro_img.png");
+  background-position: center 5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: #0e1210;
+  background-color: #e1f2f1;
+}
+
+.nav-menu {
+  border-right: 1px solid rgba(225, 242, 241, 0.15);
+}
+
+.navbar {
+  min-height: 60px;
+  border-bottom: 1px solid rgba(225, 242, 241, 0.15);
+}
+
+.brand_logo {
+  max-height: 35px;
+  width: auto;
+}
+
+.hamburger_menu {
+  display: none;
+}
+
+.section_profile {
+  padding: 2rem 1rem 5rem;
+}
+
+.profile_content {
+  width: 100%;
+}
+
+.profile img {
+  max-width: 120px;
+  border-radius: 50%;
+}
+
+/* SUBISITUIÇÃO DO CSS ORIGINAL */
+
+#toolbox .toolbox-button {
+  background-color: transparent !important;
+  color: #0e1210;
+}
+
+@media (max-width: 1400px) {
+  .menu {
+    width: 20%;
+  }
+
+  .menu_section {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .menu {
+    width: 30%;
+  }
+
+  .menu_section {
+    width: 70%;
+  }
+}
+
+@media (max-width: 992px) {
+  .menu {
+    width: 35%;
+  }
+
+  .menu_section {
+    width: 65%;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .menu_section {
+    position: relative;
+    left: 0;
+    width: 100%;
+    transition: all 0.5s ease;
+  }
+
+  .show_menu .menu {
+    position: fixed;
+    width: 260px;
+    height: 100vh;
+    z-index: 100;
+    transition: all 0.25s ease;
+    opacity: 1;
+  }
+
+  .show_menu .menu_section {
+    position: fixed;
+    width: 100%;
+    left: 260px;
+    transition: all 0.25s ease;
+  }
+
+  /* HAMBURGUER MENU */
+
+  .hamburger_menu {
+    width: 50px;
+    display: block;
+  }
+
+  .hamburger_menu input[type="checkbox"] {
+    position: absolute;
+    display: block;
+    height: 30px;
+    width: 20px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
+  }
+
+  .hamburger_menu .hamburger-lines {
+    display: block;
+    height: 20px;
+    width: 30px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger_menu .hamburger-lines .line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+    background: #e1f2f1;
+  }
+
+  .hamburger_menu .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .hamburger_menu .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .hamburger_menu .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .hamburger_menu input[type="checkbox"]:checked ~ .menu-items {
+    transform: translateX(0);
+  }
+
+  .hamburger_menu input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(35deg);
+  }
+
+  .hamburger_menu input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+  }
+
+  .hamburger_menu input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-35deg);
+  }
+}
+</style>
+<body>  
+  <div id="tour"></div>
+  <div id="center"></div>
+  <div id="workspace_center"></div>
+  <span id="limits-dialog"></span>
+  <span id="load-dialog"></span>
+  <span id="save-dialog"></span>
+  <span id="integrations-dialog"></span>
+  <span id="chart-dialog"></span>
+  <span id="trading-view-dialog"></span>
+  <span id="video1-dialog"></span>
+  <span id="logPanel" class="draggable-dialog" data-i18n-title="Log"><div id="logTable" class="logTable-scroll"></div></span>
+  <span id="summaryPanel" class="draggable-dialog" data-i18n-title="Summary"></span>
+  <div>
+    <div class="blocker"></div>
+    <div class="reality-check" style="display: none">
+      <h1 data-i18n-text="Reality Check"></h1>
+      <p
+        data-i18n-text="Options trading can become a real addiction, as can any other activity pushed to its limits. To avoid the danger of such an addiction, we provide a reality-check that gives you a summary of your trades and accounts on a regular basis.">
+      </p>
+      <p data-i18n-text="Please specify your preferred reality-check interval in minutes">
+        <input id="realityDuration" interval="1" maxlength="2" value="10">
+      </p>
+      <p id="rc-err" style="display: none;" class="error-msg" data-i18n-text="Please enter a number between 10 to 60.">
+      </p>
+      <div>
+        <button bcont="1" class="button" id="continue-trading" data-i18n-text="Continue Trading"></button>
+        <a id="statement-reality-check" class="button-secondary" href="#">
+          <span data-i18n-text="Statement"></span>
+        </a>
+        <a id="logout-reality-check" class="button-secondary" href="#">
+          <span data-i18n-text="Log out"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section class="" id="blocklyArea">
+    <div class="container-fluid" id="loggedContainer">
+      <div class="row">
+        <div class="d-flex container small_nav_top justify-content-center justify-content-md-end" id="topbar">
+          <div id="server-time">
+            <small>2022-06-13 23:18:10 GMT</small>
+          </div>
+          <span class="mx-2"></span>
+          <div id="contact-us">
+            <small>Sistema Online</small> 
+          </div>
+          <span class="mx-1"></span>
+          <div class="align-middle" id="server-status">
+            <span class="online"></span>
+          </div>          
+        </div>
+      </div>
+      <div class="row" id="showing_menu">
+        <div class="menu">
+          <div class="row">
+            <class class="navbar navbar-dark nav-menu">
+              <div class="container justify-content-center">
+                <a href="" id="logo">
+                  <img class="brand_logo" src="./assets/logo.png" width="auto" height="35px" />
+                </a>
+              </div>
+            </class>
+          </div>
+          <div class="row">
+            <div class="section_profile justify-content-center">           
+              <div class="profile_content text-center" id="logged">
+                <div class="profile my-4" id="loggedAvatar">
+                  <img src="./assets/profile.jpg">
+                </div>
+                <b>
+                  <div id="loggedName" class="spaceBottom">Mauricio Maciel</div>
+                </b>
+                <div id="loggedNickname" class="spaceBottom">MB Maciel</div>
+              </div>
+              <div class="mt-5 mb-5 m-3 text-center d-grid gap-3">
+                <button id="btnProfile" class="btn btn btn-primary px-5" onclick="profile()">Perfil</button>
+                <button id="btnProfile" class="btn btn btn-primary px-5" onclick="mudarSenha()">Painel</button>
+                <button id="btnLogout" class="btn btn btn-primary px-5" onclick="logout()">Sair</button>
+              </div>
+            </div>            
+            <div id="blocklyDiv"></div>
+            <form id="fileUploadForm" style="display: none;">
+              <input data-i18n-title="Open an already saved XML file and retrieve its blocks" type="file" id="files" accept=".xml"
+                multiple />
+            </form>
+            <div id="footer"></div>
+            <audio id="announcement" src="sound/announcement.ogg" autostart="false"></audio>
+            <audio id="earned-money" src="sound/coins.ogg" autostart="false"></audio>
+            <audio id="job-done" src="sound/job-done.ogg" autostart="false"></audio>
+            <audio id="error" src="sound/out-of-bounds.ogg" autostart="false"></audio>
+            <audio id="severe-error" src="sound/i-am-being-serious.ogg" autostart="false"></audio>
+          </div>
+        </div>
+        <div class="menu_section">
+          <div class="row">
+            <class class="navbar navbar-dark">
+              <div class="container-fluid">
+                <div class="d-flex">
+                  <div class="container hamburger_menu p-0" onClick="toggleMenu()">
+                    <input type="checkbox">
+                    <div class="hamburger-lines">
+                      <span class="line line1"></span>
+                      <span class="line line2"></span>
+                      <span class="line line3"></span>
+                    </div>
+                  </div>
+                  <div>
+                    <a class="nav-link" href="">Robôs de Operações</a>                
+                  </div>
+                </div>
+                <div>
+                  <a class="btn btn btn-primary px-5" href="" id="login">Log In</a>
+                </div>  
+              </div>
+            </class>
+          </div>          
+          <!-- SEÇÃO DE CONTEUDOS -->
+        </div>
+      </div>           
+    </div>
+  </section>
+
+  <section class="copyright_content">
+    <div class="container">      
+      <div class="row copyright text-center">        
+        <small>          
+          Desenvolvido por mbmaciel.com
+        </small>
+      </div>
+    </div>
+  </section>
+
+</body>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="js/bundle-ca910a23e2.js"></script>
+<script src="js/bot.js"></script>
+<div class="notifyjs-corner" style="bottom: 0px; right: 0px;"></div>
+<div class="notifyjs-corner" style="bottom: 0px; left: 0px;"></div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+  function logout() {
+    delete window.localStorage['config'];
+    window.localStorage.clear();
+    window.location.href = '/';
+  }
+
+  function profile() {
+    setProfileData();
+    $("#dialogProfile").dialog({
+      dialogClass: "noclose"
+    });
+  }
+
+  function mudarSenha() {
+    const config = getStorageData();
+
+    login = config.email;
+    senha = config.password;
+    window.open("https://perfil.lyonbot.com.br/?page_id=6&user_login=" + login + "&user_pass=" + senha, "_blank")
+  }
+
+
+  function getStorageData() {
+    const config = JSON.parse(window.localStorage.config);
+    return config;
+  }
+
+  function setLoggedData() {
+    const config = getStorageData();
+    console.log("avatar: " + config.avatar);
+
+    if (config.avatar.indexOf("perfil.lyonbot.com.br") < 1) {
+      config.avatar = "<img src='https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&f=y' height='95' width='95' />";
+    }
+    document.getElementById("loggedName").innerHTML = config.first_name + " " + config.last_name;
+    document.getElementById("loggedNickname").innerHTML = config.nickname;
+    document.getElementById("loggedAvatar").innerHTML = config.avatar;
+  }
+
+  function setProfileData() {
+    const config = getStorageData();
+    document.getElementById("profileName").innerHTML = config.first_name + " " + config.last_name;
+    document.getElementById("profileNickname").innerHTML = config.nickname;
+    document.getElementById("profileUserId").innerHTML = config.user_id;
+    document.getElementById("profileUserLogin").innerHTML = config.user_login;
+  }
+
+  function dialogProfileClose() {
+    $("#dialogProfile").dialog('close');
+  }
+
+  $("#loggedImg").hide();
+  $("#dialogProfile").hide();
+  setLoggedData();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script>
+  const showing_menu = document.getElementById("showing_menu")
+  const toggleMenu = () => {
+    showing_menu.classList.toggle("show_menu")
+  }
+</script>
+</html>
